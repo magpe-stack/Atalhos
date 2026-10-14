@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atalhos PWA - Guia de Atalhos</title>
+  
+  <!-- PWA & Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Guia definitivo de atalhos do Windows e softwares, rápido, offline e PWA.">
+  
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="apple-touch-icon" href="icon-192.png">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header class="app-header">
+    <div class="logo-container">
+      <img src="logo.svg" alt="Logo Atalhos PWA" class="logo-img">
+      <h1 class="app-title">Atalhos PWA</h1>
+    </div>
+
+    <!-- Alternar Tema Claro/Escuro -->
+    <button id="theme-toggle" class="btn-icon" aria-label="Alternar Modo Claro/Escuro" title="Alternar Modo Claro/Escuro">
+      <span class="icon-theme">🌓</span>
+    </button>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="app-main">
+    
+    <!-- Barra de Abas (Navegação) -->
+    <nav class="tabs-nav" id="tabs-nav" aria-label="Categorias de Atalhos">
+      <!-- Abas injetadas via JavaScript -->
+    </nav>
+
+    <!-- Área de Conteúdo das Abas -->
+    <section class="tab-content-container" id="tab-content-container">
+      <!-- Conteúdo injetado via JavaScript -->
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
