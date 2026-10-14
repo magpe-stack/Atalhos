@@ -1,4 +1,4 @@
-const CACHE_NAME = 'atalhos-pwa-v1';
+const CACHE_NAME = 'atalhos-pwa-v2';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -23,6 +23,7 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cache) => {
           if (cache !== CACHE_NAME) {
+            console.log('[SW] Removendo cache antigo:', cache);
             return caches.delete(cache);
           }
         })
