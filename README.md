@@ -44,7 +44,7 @@ Basta abrir o arquivo `index.html` ou acessar o link publicado no seu navegador 
 3. Acesse `http://localhost:8000` no seu navegador.
 
 ---
-atalhos-pwa/
+
 ├── index.html
 ├── style.css
 ├── app.js
@@ -52,4 +52,5 @@ atalhos-pwa/
 ├── manifest.json
 ├── logo.svg
 └── README.md
+
 ---
