@@ -2,7 +2,6 @@
  * Atalhos PWA - Lógica de renderização de abas e dados
  */
 
-// --- Dados Estruturados dos Atalhos ---
 const ATALHOS_DATA = [
   {
     id: "windows",
@@ -191,11 +190,15 @@ const ATALHOS_DATA = [
   }
 ];
 
-// --- Renderização Dinâmica das Abas ---
-const tabsNav = document.getElementById('tabs-nav');
-const tabContentContainer = document.getElementById('tab-content-container');
-
 function initTabs() {
+  const tabsNav = document.getElementById('tabs-nav');
+  const tabContentContainer = document.getElementById('tab-content-container');
+
+  if (!tabsNav || !tabContentContainer) return;
+
+  tabsNav.innerHTML = '';
+  tabContentContainer.innerHTML = '';
+
   ATALHOS_DATA.forEach((category, index) => {
     // Cria Botão da Aba
     const btn = document.createElement('button');
@@ -240,9 +243,6 @@ function switchTab(targetId) {
   });
 }
 
-// --- Alternância de Tema ---
-const btnThemeToggle = document.getElementById('theme-toggle');
-
 function initTheme() {
   const savedTheme = localStorage.getItem('atalhos-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
@@ -259,15 +259,24 @@ function toggleTheme() {
 }
 
 function updateThemeIcon(theme) {
-  btnThemeToggle.querySelector('.icon-theme').textContent = theme === 'light' ? '☀️' : '🌙';
+  const btnThemeToggle = document.getElementById('theme-toggle');
+  if (btnThemeToggle) {
+    const iconSpan = btnThemeToggle.querySelector('.icon-theme');
+    if (iconSpan) {
+      iconSpan.textContent = theme === 'light' ? '☀️' : '🌙';
+    }
+  }
 }
 
-btnThemeToggle.addEventListener('click', toggleTheme);
-
-// --- Inicialização ---
+// --- Inicialização Garantida após o DOM carregar ---
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initTabs();
+
+  const btnThemeToggle = document.getElementById('theme-toggle');
+  if (btnThemeToggle) {
+    btnThemeToggle.addEventListener('click', toggleTheme);
+  }
 });
 
 // --- Registro do Service Worker ---
